@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Loop Prank</title>
+  <meta charset="UTF-8">
+  <title>Div Madness</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
+
+    .chaos {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      animation: spin 1s infinite linear;
+      background: hsl(0, 100%, 50%);
+      border-radius: 50%;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(0, 0) rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-    <h1>Warning: This is an Infinite Loop!</h1>
-    <p>If you see this message, your browser is about to go crazy with endless loops and printouts!</p>
+  <script>
+    const count = 12000;
 
-    <script>
-        while (true) {
-            while (true) {
-                while (true) {
-                    
-                    console.log("Ooh nice computer. Can I have it?");  
-                    Math.random();  
-                }
-            }
-        }
-    </script>
+    for (let i = 0; i < count; i++) {
+      const div = document.createElement("div");
+      div.className = "chaos";
+      div.style.top = Math.random() * window.innerHeight + "px";
+      div.style.left = Math.random() * window.innerWidth + "px";
+      div.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      document.body.appendChild(div);
+    }
+
+    console.log(`${count} divs spawned. Good luck...`);
+  </script>
 </body>
 </html>
