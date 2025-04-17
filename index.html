@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Div Madness</title>
+  <title>Project OSC Reload</title>
   <style>
     body {
       margin: 0;
@@ -11,8 +11,8 @@
     }
 
     .chaos {
-      width: 10px;
-      height: 10px;
+      width: 20px;
+      height: 20px;
       position: absolute;
       animation: spin 1s infinite linear;
       background: hsl(0, 100%, 50%);
@@ -20,25 +20,28 @@
     }
 
     @keyframes spin {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(0, 0) rotate(360deg); }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
   <script>
-    const count = 12000;
+    let interval = setInterval(() => {
+      for (let i = 0; i < 100; i++) {
+        const div = document.createElement("div");
+        div.className = "chaos";
+        div.style.top = Math.random() * window.innerHeight + "px";
+        div.style.left = Math.random() * window.innerWidth + "px";
+        div.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        document.body.appendChild(div);
+      }
+    }, 100);
 
-    for (let i = 0; i < count; i++) {
-      const div = document.createElement("div");
-      div.className = "chaos";
-      div.style.top = Math.random() * window.innerHeight + "px";
-      div.style.left = Math.random() * window.innerWidth + "px";
-      div.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      document.body.appendChild(div);
-    }
-
-    console.log(`${count} divs spawned. Good luck...`);
+    // Reload every 8 seconds to restart the chaos
+    setTimeout(() => {
+      location.reload();
+    }, 8000);
   </script>
 </body>
 </html>
