@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Loop Prank</title>
+</head>
+<body>
+    <h1>Warning: This is an Infinite Loop!</h1>
+    <p>If you see this message, your browser is about to go crazy with endless loops and printouts!</p>
+
+    <script>
+        while (true) {
+            while (true) {
+                while (true) {
+                    // Infinite loops inside infinite loops inside infinite loops
+                    console.log("Ooh nice computer. Can I have it?");  // This keeps printing the message forever
+                    Math.random();  // Just to keep the CPU occupied, could be anything
+                }
+            }
+        }
+    </script>
+</body>
+</html>
